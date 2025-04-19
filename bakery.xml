@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bakery>
+    <product id="1">
+        <name>Chocolate Cake</name>
+        <price>15.99</price>
+        <category>Cake</category>
+        <ingredients>
+            <ingredient>Flour</ingredient>
+            <ingredient>Chocolate</ingredient>
+            <ingredient>Eggs</ingredient>
+        </ingredients>
+    </product>
+    <product id="2">
+        <name>Butter Croissant</name>
+        <price>3.50</price>
+        <category>Pastry</category>
+        <ingredients>
+            <ingredient>Flour</ingredient>
+            <ingredient>Butter</ingredient>
+            <ingredient>Yeast</ingredient>
+        </ingredients>
+    </product>
+</bakery>

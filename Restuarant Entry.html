@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Data Entry Form</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        input {
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Restaurant Data Entry Form</h2>
+
+    <form id="restaurantForm">
+        <table>
+            <tr>
+                <th>Dish Name</th>
+                <td><input type="text" id="dishName" name="dishName" required onfocus="showEvent('Focus')"></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td><input type="number" id="price" name="price" required onblur="showEvent('Blur')"></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>
+                    <select id="category" name="category" required onchange="showEvent('Category Change')">
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td><textarea id="description" name="description" required onkeyup="showEvent('Key Up')"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="eventInfo" style="text-align: center; margin-top: 20px;">
+        <h3>Event Information:</h3>
+        <p id="eventDetails">No events triggered yet.</p>
+    </div>
+
+    <script>
+        // Function to show event details
+        function showEvent(eventType) {
+            document.getElementById('eventDetails').innerHTML = "Event Triggered: " + eventType;
+        }
+
+        // Event for form submission
+        document.getElementById("restaurantForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Form Submitted Successfully!");
+        });
+    </script>
+</body>
+</html>

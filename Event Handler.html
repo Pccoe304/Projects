@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Event Handlers</title>
+    <script>
+        function sayHello() {
+            alert("Hello! You clicked the button.");
+        }
+
+        function showInput() {
+            let value = document.getElementById("myInput").value;
+            alert("You typed: " + value);
+        }
+
+        function mouseOverFunc() {
+            document.getElementById("hoverBox").style.backgroundColor = "lightblue";
+        }
+
+        function mouseOutFunc() {
+            document.getElementById("hoverBox").style.backgroundColor = "white";
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Event Handler Examples</h2>
+
+    
+    <!-- Input Event -->
+    <input type="text" id="myInput" onblur="showInput()" placeholder="Type something"><br><br>
+    
+    <!-- Click Event -->
+    <button onclick="sayHello()">Click Me</button><br><br>
+
+    <!-- Mouse Events -->
+    <div id="hoverBox" 
+         onmouseover="mouseOverFunc()" 
+         onmouseout="mouseOutFunc()" 
+         style="width:200px; height:100px; border:1px solid black;">
+         Hover over me
+    </div>
+
+</body>
+</html>
+
+

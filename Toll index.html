@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toll Tax Entry</title>
+</head>
+<body>
+    <h2>Toll Tax Entry</h2>
+    <form action="Toll submit.php" method="post">
+        Vehicle Number: <input type="text" name="vehicle_number" required><br><br>
+        Vehicle Type: 
+        <select name="vehicle_type" required>
+            <option>Car</option>
+            <option>Truck</option>
+            <option>Bus</option>
+            <option>Bike</option>
+        </select><br><br>
+        Toll Amount: <input type="number" step="0.01" name="toll_amount" required><br><br>
+        <input type="submit" value="Submit Entry">
+    </form>
+    <br>
+    <a href="Toll view.php">View Toll Entries</a>
+</body>
+</html>

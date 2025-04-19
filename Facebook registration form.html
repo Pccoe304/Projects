@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Registration</title>
+    <style>
+        body{
+            font-family: 'Times New Roman';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #dbe6f7;
+            flex-direction: column;
+            text-align: center;
+        }
+        form{
+            font-family: 'Times New Roman';
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        input{
+            font-family: 'Times New Roman';
+            width: 92%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button{
+            font-family: 'Times New Roman';
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Facebook Registration</h2>
+    <form>
+        <input type="text" id="fname" placeholder="First Name" onblur="validateFname()"><br>
+        <span id="fname-error" class="error"></span><br>
+
+        <input type="text" id="lname" placeholder="Last Name" onblur="validateLname()"><br>
+        <span id="lname-error" class="error"></span><br>
+
+        <input type="email" id="email" placeholder="Email" onblur="validateEmail()"><br>
+        <span id="email-error" class="error"></span><br>
+
+        <input type="password" id="pass" placeholder="Password" onblur="validatePassword()"><br>
+        <span id="pass-error" class="error"></span><br>
+
+        <input type="date" id="dob"><br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateFname() {
+            let fname = document.getElementById("fname").value;
+            let error = document.getElementById("fname-error");
+            error.textContent = fname ? "" : "First Name is required";
+        }
+
+        function validateLname() {
+            let lname = document.getElementById("lname").value;
+            let error = document.getElementById("lname-error");
+            error.textContent = lname ? "" : "Last Name is required";
+        }
+
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            let error = document.getElementById("email-error");
+            if (!email) {
+                error.textContent = "Email is required";
+            } else if (!email.includes("@") || !email.includes(".")) {
+                error.textContent = "Invalid email format";
+            } else {
+                error.textContent = "";
+            }
+        }
+
+        function validatePassword() {
+            let pass = document.getElementById("pass").value;
+            let error = document.getElementById("pass-error");
+            if (!pass) {
+                error.textContent = "Password is required";
+            } else if (!/^(?=.*[@#$%&*!])(?=.*\d)[A-Za-z\d@!#$%&*]{6,}$/.test(pass)) {
+                error.textContent = "Password must be at least 6 characters and include special characters and numbers";
+            } else {
+                error.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up and Login</title>
+  <style>
+    body {
+      font-family: 'Times New Roman';
+      background-color: #e3f2fd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Sign Up</h2>
+  <form id="signupForm">
+    <input type="text" id="signupName" placeholder="Full Name" required><br>
+    <input type="text" id="signupUser" placeholder="Username" required><br>
+    <input type="password" id="signupPass" placeholder="Password" required><br>
+    <button type="button" onclick="register()">Register</button>
+    <div id="signupError" class="error"></div>
+  </form>
+
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="loginUser" placeholder="Username" required><br>
+    <input type="password" id="loginPass" placeholder="Password" required><br>
+    <button type="button" onclick="login()">Login</button>
+    <div id="loginError" class="error"></div>
+  </form>
+
+  <div id="welcomeMessage" style="display:none; font-size:20px; color:green;"></div>
+
+  <script>
+    let savedName = "", savedUser = "", savedPass = "";
+
+    function register() {
+      const name = document.getElementById("signupName").value;
+      const user = document.getElementById("signupUser").value;
+      const pass = document.getElementById("signupPass").value;
+
+      if (!name || !user || !pass) {
+        document.getElementById("signupError").innerText = "All fields are required.";
+        return;
+      }
+
+      savedName = name;
+      savedUser = user;
+      savedPass = pass;
+
+      document.getElementById("signupError").innerText = "Registration successful!";
+    }
+
+    function login() {
+      const user = document.getElementById("loginUser").value;
+      const pass = document.getElementById("loginPass").value;
+
+      if (user === savedUser && pass === savedPass) {
+        document.getElementById("loginError").innerText = "";
+        document.getElementById("welcomeMessage").style.display = "block";
+        document.getElementById("welcomeMessage").innerText = "Welcome, " + savedName + "!";
+      } else {
+        document.getElementById("welcomeMessage").style.display = "none";
+        document.getElementById("loginError").innerText = "Invalid username or password.";
+      }
+    }
+  </script>
+
+</body>
+</html>

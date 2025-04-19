@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+      font-family: 'Arial', sans-serif;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin-top: 20px;
+      background-color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    td {
+      background-color: #f9f9f9;
+    }
+
+    td[rowspan] {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TY Timetable</h1>
+  
+  <table>
+    <tr>
+      <th>Day</th>
+      <th>9-10 AM</th>
+      <th>10-11 AM</th>
+      <th>11-12 PM</th>
+      <th>12-1 PM</th>
+      <th>1-2 PM</th>
+      <th>2-3 PM</th>
+      <th>3-4 PM</th>
+      <th>4-5 PM</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td>TS</td>
+      <td>OS<br>MB<br>CR:6201</td>
+      <td class="break" rowspan="5">Break</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td class="break" rowspan="5">Break</td>
+      <td>ML<br>SV<br>CR:6204</td>
+      <td>IVP<br>NG<br>CR:6416</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>TS</td>
+      <td>OS<br>MB<br>CR:6201</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>ML<br>SV<br>CR:6204</td>
+      <td>IVP<br>NG<br>CR:6416</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>TS</td>
+      <td>OS<br>MB<br>CR:6201</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>ML<br>SV<br>CR:6204</td>
+      <td>IVP<br>NG<br>CR:6416</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>TS</td>
+      <td>OS<br>MB<br>CR:6201</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>ML<br>SV<br>CR:6204</td>
+      <td>IVP<br>NG<br>CR:6416</td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>TS</td>
+      <td>OS<br>MB<br>CR:6201</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>SDL<br>SK<br>LAB:6220</td>
+      <td>ML<br>SV<br>CR:6204</td>
+      <td>IVP<br>NG<br>CR:6416</td>
+    </tr>
+  </table>
+
+</body>
+</html>

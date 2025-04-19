@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form with Validation</title>
+  <style>
+    body {
+      font-family: 'Times New Roman';
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      width: 350px;
+    }
+    input, select {
+      width: 95%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .checkbox-group {
+      text-align: left;
+      margin: 8px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e0f7fa;
+      border-radius: 10px;
+      width: 400px;
+      text-align: left;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form onsubmit="return handleSubmit()">
+    <input type="text" id="fname" placeholder="First Name">
+    <span id="fname-error" class="error"></span>
+
+    <input type="text" id="lname" placeholder="Last Name">
+    <span id="lname-error" class="error"></span>
+
+    <input type="text" id="org" placeholder="Organization">
+    <span id="org-error" class="error"></span>
+
+    <input type="email" id="email" placeholder="Email">
+    <span id="email-error" class="error"></span>
+
+    <div class="checkbox-group">
+      <label><strong>Hobbies:</strong></label><br>
+      <input type="checkbox" name="hobby" value="Reading"> Reading
+      <input type="checkbox" name="hobby" value="Traveling"> Traveling
+      <input type="checkbox" name="hobby" value="Gaming"> Gaming
+    </div>
+    <span id="hobby-error" class="error"></span>
+
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+    <span id="gender-error" class="error"></span>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    function handleSubmit() {
+      let fname = document.getElementById("fname").value.trim();
+      let lname = document.getElementById("lname").value.trim();
+      let org = document.getElementById("org").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let gender = document.getElementById("gender").value;
+      let hobbies = [];
+
+      document.querySelectorAll("input[name='hobby']:checked").forEach(cb => hobbies.push(cb.value));
+
+      let valid = true;
+
+      // First Name Validation
+      if (fname === "") {
+        document.getElementById("fname-error").textContent = "First name is required";
+        valid = false;
+      } else if (!/^[A-Za-z]+$/.test(fname)) {
+        document.getElementById("fname-error").textContent = "Only alphabets allowed";
+        valid = false;
+      } else {
+        document.getElementById("fname-error").textContent = "";
+      }
+
+      // Last Name Validation
+      if (lname === "") {
+        document.getElementById("lname-error").textContent = "Last name is required";
+        valid = false;
+      } else if (!/^[A-Za-z]+$/.test(lname)) {
+        document.getElementById("lname-error").textContent = "Only alphabets allowed";
+        valid = false;
+      } else {
+        document.getElementById("lname-error").textContent = "";
+      }
+
+      // Organization Validation
+      if (org === "") {
+        document.getElementById("org-error").textContent = "Organization is required";
+        valid = false;
+      } else {
+        document.getElementById("org-error").textContent = "";
+      }
+
+      // Email Validation
+      if (email === "") {
+        document.getElementById("email-error").textContent = "Email is required";
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("email-error").textContent = "Invalid email format";
+        valid = false;
+      } else {
+        document.getElementById("email-error").textContent = "";
+      }
+
+      // Hobby Validation
+      if (hobbies.length === 0) {
+        document.getElementById("hobby-error").textContent = "Select at least one hobby";
+        valid = false;
+      } else {
+        document.getElementById("hobby-error").textContent = "";
+      }
+
+      // Gender Validation
+      if (gender === "") {
+        document.getElementById("gender-error").textContent = "Please select a gender";
+        valid = false;
+      } else {
+        document.getElementById("gender-error").textContent = "";
+      }
+
+      if (!valid) return false;
+
+      // Show Output
+      let output = `
+        <h3>Registration Details</h3>
+        <strong>First Name:</strong> ${fname}<br>
+        <strong>Last Name:</strong> ${lname}<br>
+        <strong>Organization:</strong> ${org}<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Gender:</strong> ${gender}<br>
+        <strong>Hobbies:</strong> ${hobbies.join(", ")}
+      `;
+      document.getElementById("output").innerHTML = output;
+      document.getElementById("output").style.display = "block";
+
+      return false; // Prevent form refresh
+    }
+  </script>
+
+</body>
+</html>
