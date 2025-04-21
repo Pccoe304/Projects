@@ -1,7 +1,9 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) 
+{
     $email = $_POST['email'];
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) 
+    {
         echo "✅ Valid Email: " . $email;
     } else {
         echo "❌ Invalid Email!";

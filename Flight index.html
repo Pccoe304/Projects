@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Booking</title>
+</head>
+<body>
+    <h2>Flight Booking Form</h2>
+    <form action="Flight submit.php" method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Email: <input type="email" name="email" required><br><br>
+        Select Flight:
+        <select name="flight" required>
+            <option value="Mumbai to Delhi">Mumbai to Delhi</option>
+            <option value="Delhi to Bangalore">Delhi to Bangalore</option>
+            <option value="Chennai to Kolkata">Chennai to Kolkata</option>
+        </select><br><br>
+        <input type="submit" value="Book Flight">
+    </form>
+    <br>
+    <a href="Flight view.php">View Bookings</a>
+</body>
+</html>

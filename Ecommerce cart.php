@@ -6,7 +6,7 @@ $products = [
     3 => ['name' => 'Jacket', 'price' => 60],
 ];
 
-$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+$cart = $_SESSION['cart'] ?? [];
 $total = 0;
 
 ?>

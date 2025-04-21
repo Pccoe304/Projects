@@ -1,11 +1,13 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "grocery");
+$conn = new mysqli("localhost", "root", "Savi#15@Mrunal", "grocery");
 if (isset($_POST['add'])) {
     $item = $_POST['item'];
     $price = $_POST['price'];
     $conn->query("INSERT INTO products (name, price) VALUES ('$item', '$price')");
 }
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <body>

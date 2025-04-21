@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "college_admission_db");
+$conn = new mysqli("localhost", "root", "Savi#15@Mrunal", "college_admission_db");
 
 $result = $conn->query("SELECT * FROM admissions");
 

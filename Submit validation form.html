@@ -72,13 +72,7 @@
     <input type="email" id="email" placeholder="Email">
     <span id="email-error" class="error"></span>
 
-    <div class="checkbox-group">
-      <label><strong>Hobbies:</strong></label><br>
-      <input type="checkbox" name="hobby" value="Reading"> Reading
-      <input type="checkbox" name="hobby" value="Traveling"> Traveling
-      <input type="checkbox" name="hobby" value="Gaming"> Gaming
-    </div>
-    <span id="hobby-error" class="error"></span>
+    <input type="text" id="hobby" placeholder="Hobbies (optional)">
 
     <select id="gender">
       <option value="">Select Gender</option>
@@ -100,9 +94,8 @@
       let org = document.getElementById("org").value.trim();
       let email = document.getElementById("email").value.trim();
       let gender = document.getElementById("gender").value;
-      let hobbies = [];
+      let hobby = document.getElementById("hobby").value.trim();
 
-      document.querySelectorAll("input[name='hobby']:checked").forEach(cb => hobbies.push(cb.value));
 
       let valid = true;
 
@@ -147,14 +140,6 @@
         document.getElementById("email-error").textContent = "";
       }
 
-      // Hobby Validation
-      if (hobbies.length === 0) {
-        document.getElementById("hobby-error").textContent = "Select at least one hobby";
-        valid = false;
-      } else {
-        document.getElementById("hobby-error").textContent = "";
-      }
-
       // Gender Validation
       if (gender === "") {
         document.getElementById("gender-error").textContent = "Please select a gender";
@@ -173,8 +158,9 @@
         <strong>Organization:</strong> ${org}<br>
         <strong>Email:</strong> ${email}<br>
         <strong>Gender:</strong> ${gender}<br>
-        <strong>Hobbies:</strong> ${hobbies.join(", ")}
+        <strong>Hobbies:</strong> ${hobby || "None"}
       `;
+      
       document.getElementById("output").innerHTML = output;
       document.getElementById("output").style.display = "block";
 

@@ -22,7 +22,8 @@ $conn->close();
 ?>
 
 
-<!-- CREATE DATABASE college_admission_db;
+<!-- 
+CREATE DATABASE college_admission_db;
 
 USE college_admission_db;
 
@@ -31,4 +32,5 @@ CREATE TABLE admissions (
     student_name VARCHAR(100),
     course VARCHAR(100),
     email VARCHAR(100)
-); -->
+); 
+-->

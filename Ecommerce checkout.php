@@ -1,8 +1,8 @@
 <?php
 session_start();
-$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
     $_SESSION['cart'] = [];  // Clear cart after order
     echo "<h2>Order Placed Successfully!</h2>";
     exit;
@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Checkout</h2>
     <form method="POST">
         <label>Name:</label>
-        <input type="text" name="name" required><br>
+        <input type="text" name="name" required><br><br>
         <label>Address:</label>
-        <input type="text" name="address" required><br>
+        <input type="text" name="address" required><br><br>
         <button type="submit">Place Order</button>
     </form>
 </body>

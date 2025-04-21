@@ -1,11 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "library";
-
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "Savi#15@Mrunal", "library");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -18,8 +13,6 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Catalogue</title>
 </head>
 <body>
@@ -47,6 +40,7 @@ $result = $conn->query($sql);
         }
         $conn->close();
         ?>
+        
     </table>
 </body>
 </html>
@@ -57,6 +51,38 @@ $result = $conn->query($sql);
 
 USE library;
 
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    genre VARCHAR(50),
+    price DECIMAL(5,2)
+); 
+
+-->
+
+<!-- 
+INSERT INTO books (title, author, genre, price) VALUES 
+('Gitanjali', 'Tagore', 'Poetry', 900.50),
+('Godaan', 'Premchand', 'Fiction', 700.80),
+('Wings', 'Kalam', 'Biography', 650.00),
+('Train', 'Ruskin', 'Short Story', 600.75),
+('Guide', 'Narayan', 'Novel', 800.60); 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50),
@@ -64,17 +90,5 @@ CREATE TABLE users (
     password VARCHAR(255)
 );
 
-CREATE TABLE books (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(100),
-    author VARCHAR(100),
-    genre VARCHAR(50),
-    price DECIMAL(5,2)
-); -->
+ -->
 
-
-
-<!-- INSERT INTO books (title, author, genre, price) VALUES 
-('The Great Gatsby', 'F. Scott Fitzgerald', 'Novel', 10.99),
-('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 8.99),
-('1984', 'George Orwell', 'Dystopian', 12.49); -->

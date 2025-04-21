@@ -1,9 +1,10 @@
 <?php
 session_start();
-include "db.php";
+include "Grocery db.php";
 $result = $conn->query("SELECT * FROM products");
 
-if (isset($_GET['add'])) {
+if (isset($_GET['add'])) 
+{
     $_SESSION['cart'][] = $_GET['add'];
 }
 ?>
@@ -16,4 +17,4 @@ if (isset($_GET['add'])) {
     </p>
 <?php endwhile; ?>
 
-<a href="cart.php">🛒 View Cart</a>
+<a href="Grocery cart.php">🛒 View Cart</a>

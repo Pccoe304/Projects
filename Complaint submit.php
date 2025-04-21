@@ -12,13 +12,21 @@ $message = $_POST['message'];
 $sql = "INSERT INTO complaints (name, email, message) VALUES ('$name', '$email', '$message')";
 
 if ($conn->query($sql)) {
-    echo "Complaint submitted successfully!<br><a href='index.html'>Go Back</a>";
+    echo "Complaint submitted successfully!<br><a href='Complaint index.html'>Go Back</a>";
 } else {
     echo "Error: " . $conn->error;
 }
 
 $conn->close();
 ?>
+
+
+
+
+
+
+
+
 
 
 <!-- CREATE DATABASE complaint_db;

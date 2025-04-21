@@ -1,4 +1,49 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .popup {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #4caf50; color: #fff; padding: 10px 15px;
+      border-radius: 6px; display: none;
+    }
+    .popup.show { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="popup" id="popup">Notification! <button onclick="closePopup()">X</button></div>
+<button onclick="showPopup()">Show</button>
+
+<script>
+  function showPopup() {
+    const p = document.getElementById("popup");
+    p.classList.add("show");
+    setTimeout(closePopup, 5000); // auto-hide in 3 sec
+  }
+  function closePopup() {
+    document.getElementById("popup").classList.remove("show");
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -76,4 +121,4 @@
   </script>
 
 </body>
-</html>
+</html> -->

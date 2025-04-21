@@ -1,52 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cookie Storage Example</title>
-</head>
+<html>
+<head><title>Simple Cookie</title></head>
 <body>
 
-  <h2>Cookie Storage Example</h2>
+<input id="user" placeholder="Enter username">
+<button onclick="save()">Save</button>
+<p id="info"></p>
 
-  <label for="username">Enter Username: </label>
-  <input type="text" id="username">
-  <button onclick="storeCookie()">Store Username in Cookie</button>
-
-  <p id="cookieInfo"></p>
-
-  <script>
-    // Function to store a cookie
-    function storeCookie() {
-      const username = document.getElementById("username").value;
-      if (username) {
-        // Set a cookie with a name 'username' and its value, valid for 1 hour
-        document.cookie = "username=" + username + "; path=/; expires=" + new Date(new Date().getTime() + 60*60*1000).toUTCString();
-        alert("Username has been stored in cookies!");
-        displayCookie(); // Display cookie information
-      } else {
-        alert("Please enter a username.");
-      }
+<script>
+  function save() {
+    let u = user.value;
+    if (u) {
+      document.cookie = "user=" + u + "; max-age=3600";
+      info.innerText = "Cookie: user=" + u;
     }
+  }
 
-    // Function to get cookies and display them
-    function displayCookie() {
-      const cookies = document.cookie;
-      let cookieInfo = "Stored Cookies: ";
-      if (cookies) {
-        // Split cookies and format them for display
-        cookieInfo += cookies.replace(/;/g, " | ");
-      } else {
-        cookieInfo += "No cookies stored.";
-      }
-      document.getElementById("cookieInfo").innerText = cookieInfo;
+  window.onload = () => {
+    let c = document.cookie.split("; ").find(c => c.startsWith("user="));
+    if (c) {
+      info.innerText = "Cookie: " + c;
+    } else {
+      info.innerText = "No cookies set.";
     }
-
-    // Check if there's already a cookie when the page loads
-    window.onload = function() {
-      displayCookie();
-    };
-  </script>
+  };
+</script>
 
 </body>
 </html>
