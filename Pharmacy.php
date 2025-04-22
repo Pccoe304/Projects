@@ -9,11 +9,11 @@ $page = $_GET['page'] ?? 'form';
 
 // Form submit handling
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $page === 'form') {
-    $name = $_POST['medicine_name'];
+    $name = $_POST['medicine'];
     $qty = $_POST['quantity'];
     $price = $_POST['price'];
 
-    $sql = "INSERT INTO medicines (medicine_name, quantity, price)
+    $sql = "INSERT INTO pharmacy (medicine, quantity, price)
             VALUES ('$name', '$qty', '$price')";
 
     if ($conn->query($sql)) {
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $page === 'form') {
 <?php if ($page === 'form'): ?>
     <h2>Medicine Entry</h2>
     <form method="post" action="?page=form">
-        Medicine Name: <input type="text" name="medicine_name" required><br><br>
+        Medicine Name: <input type="text" name="medicine" required><br><br>
         Quantity: <input type="number" name="quantity" required><br><br>
-        Price: <input type="number" step="0.01" name="price" required><br><br>
+        Price: <input type="number" name="price" required><br><br>
         <input type="submit" value="Add Medicine">
     </form>
     <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
@@ -47,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $page === 'form') {
 <?php elseif ($page === 'view'): ?>
     <h2>Available Medicines</h2>
     <?php
-    $result = $conn->query("SELECT * FROM medicines");
+    $result = $conn->query("SELECT * FROM pharmacy");
     while ($row = $result->fetch_assoc()) {
-        echo "<b>Name:</b> " . $row['medicine_name'] . "<br>";
+        echo "<b>Name:</b> " . $row['medicine'] . "<br>";
         echo "<b>Quantity:</b> " . $row['quantity'] . "<br>";
-        echo "<b>Price:</b> ₹" . $row['price'] . "<hr>";
+        echo "<b>Price:</b> ₹" . $row['price'] . "<br>";
     }
     ?>
     <br>
@@ -70,11 +70,11 @@ CREATE DATABASE pharmacy_db;
 
 USE pharmacy_db;
 
-CREATE TABLE medicines (
+CREATE TABLE pharmacy (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    medicine_name VARCHAR(100),
+    medicine VARCHAR(100),
     quantity INT,
-    price DECIMAL(10,2)
+    price DECIMAL(7,2)
 );
  -->
 

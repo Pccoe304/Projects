@@ -1,15 +1,18 @@
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', 'Savi#15@Mrunal', 'cookie');
+$conn = new mysqli('localhost', 'root', 'Savi#15@Mrunal', 'cookie');
 
 // Handle login
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $result = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' AND password='$password'");
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
+    $result = $conn->query("SELECT * FROM user WHERE username='$username' AND password='$password'");
+    $num_rows = $result->num_rows;
+
+    if ($num_rows > 0) 
+    {
+        $row = $result->fetch_assoc();
         $_SESSION['id'] = $row['id'];
         $_SESSION['username'] = $row['username'];
 

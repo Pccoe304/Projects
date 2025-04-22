@@ -1,9 +1,9 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', 'Savi#15@Mrunal', 'cookie');
+    $conn = new mysqli('localhost', 'root', 'Savi#15@Mrunal', 'cookie');
 
-    if(mysqli_connect_errno())
+    if($conn->connect_error)
     {
-        echo "Failed to connect MySQL: ".mysqli_connect_error();
+        echo "Failed to connect MySQL: ".$conn->connect_error;
     }
 ?>
 

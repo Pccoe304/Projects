@@ -7,9 +7,10 @@
     		$username=$_POST['username'];
     		$password=$_POST['password'];
      
-    		$query=mysqli_query($conn,"select * from `user` where username='$username' && password='$password'");
+    		$query=$conn->query("select * from `user` where username='$username' && password='$password'");
+			$num_rows = $query->num_rows;
      
-    		if (mysqli_num_rows($query) == 0)
+    		if ($num_rows == 0)
             {
     			$_SESSION['message']="Login Failed. User not Found!";
     			header('location:Session Form.php');
@@ -17,7 +18,7 @@
     		}
     		else
             {
-    			$row=mysqli_fetch_array($query);
+    			$row=$query->fetch_assoc();
      
     			if (isset($_POST['remember']))
                 {
@@ -34,8 +35,8 @@
     	else
         {
 			session_start();
-			header('location:Session Form.php');
 			$_SESSION['message']="Please Login!";
+			header('location:Session Form.php');
 			exit();
     	}
 ?>

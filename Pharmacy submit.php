@@ -22,6 +22,9 @@ $conn->close();
 ?>
 
 
+
+
+
 <!-- CREATE DATABASE pharmacy_db;
 
 USE pharmacy_db;
